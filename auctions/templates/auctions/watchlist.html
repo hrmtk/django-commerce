@@ -1,0 +1,41 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}
+My Watchlist
+{% endblock %}
+
+{% block body %}
+
+    <main>
+
+        <div class="index-container">
+
+            <h3>My Watchlist</h3>
+
+            <div class="listing-container">
+                {% for list in lists %}
+                    <a href="{% url 'entry' list.id %}">
+                        <div class="item">
+                            <h5>{{ list.title }}</h5>
+                            {% if not list.active %}
+                                <p class="closed">closed</p>
+                            {% endif %}
+                            
+                            <img src="{{ list.image }}" alt="No image">
+                            <ul>
+                                <li>{{ list.description }}</li>
+                                <li>$ {{ list.current_price }}</li>
+                                <li class="date">created {{ list.created_date }}</li>    
+                            </ul>
+                        </div>
+                    </a>
+                {% empty %}
+                    <p>No listing.</p>
+                {% endfor %}
+            </div>    
+
+        </div>
+            
+    </main>
+
+{% endblock %}

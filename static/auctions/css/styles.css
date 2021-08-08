@@ -1,0 +1,239 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+/*
+  ========================================
+  Custom styles
+  ========================================
+*/
+
+body {
+    font-family: 'Railway', sans-serif;
+}
+
+h1, h3, h4 {
+	font-family: 'Kufam', cursive;
+	text-decoration: underline overline solid gray;
+}
+
+h1 {
+	padding-left: 20px;
+}
+
+h3, h4 {
+	padding-top: 20px;
+}
+
+li {
+	list-style: none;
+	color: dimgray;
+}
+
+* a {
+	text-decoration: none;
+	color: #555555;
+}
+
+/*header*/
+header {
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 80px;
+	display: flex;
+	position: fixed;
+	justify-content: space-between;
+	align-items: flex-end;
+	box-shadow: 2px -3px 22px 1px black;
+	background-color: floralwhite;
+	z-index: 1;
+}
+
+.nav-link:hover {
+	border-bottom: 6px solid cadetblue;
+}
+
+.nav-right {
+	padding-right: 10px;
+}
+
+/*body*/
+body {
+	margin-top: 80px;
+}
+
+form {
+	width: 80%;
+}
+
+.container-box {
+	display: flex;
+	align-content: center;
+	justify-content: center;
+}
+
+.container-item {
+	width: 500px;
+	margin-top: 20px;
+	margin-bottom: auto;
+	padding: 20px 40px;
+	background-color: beige;
+}
+
+.index-container {
+	padding: 20px;
+}
+
+/*category menu*/
+.dropbtn {
+  background-color: dimgray;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  min-width: 160px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a, .dropdown-content option {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+	background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+.dropdown:hover .dropbtn {
+	background-color: darkgray;
+}
+
+.listing-container {
+	display: flex;
+	flex-wrap: wrap;
+	align-content: space-around;
+	padding-left: 40px;
+}
+
+.item {
+	width: 250px;
+	height: 400px;
+	margin: 10px;
+	padding: 10px 10px 0 10px;
+	border-radius: 5px;
+	box-shadow: 2px 2px 4px #000000;
+}
+
+.item:hover {
+	border: 2px solid black;
+}
+
+.item img {
+	width: 100%;
+	height: 45%;
+}
+
+.current-price {
+	font-family: 'Kufam', cursive;
+	font-size: 20px;
+	color: chocolate;
+}
+
+.item .current-price {
+	font-size: 18px;
+	margin: 10px 0;
+}
+
+.date {
+	font-size: 12px;
+}
+
+/*entry page*/
+.entry-container {
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	padding: 20px;
+}
+
+.entry-item {
+	background-color: beige;
+	width: 600px;
+	min-height: 900px;
+	margin-bottom: auto;
+	padding: 20px 40px;
+}
+
+.entry-item img {
+	width: 100%;
+	height: 50%;
+	padding: 10px;
+}
+
+.entry-content {
+	padding-left: 20px;
+}
+
+.entry-item h3, .entry-item h4 {
+	padding-left: 0;
+}
+
+.entry-item p {
+	margin: 0;
+}
+
+.row {
+	margin: 10px 0 0 0;
+}
+
+.btn-1 {
+	margin: 10px 0;
+	padding: 5px 10px;
+	border-radius: 3px;
+	background-color: dimgray;
+	color: white;
+}
+
+.entry-item .row .btn-1 {
+	margin: 0 0 0 10px;
+}
+
+.btn-1:hover {
+	background-color: darkgray;
+}
+
+/*watchlist page*/
+.closed {
+	width: 60px;
+	padding: 0 3px;
+	border-radius: 2px;
+	border: 0.5px solid dimgray;
+}

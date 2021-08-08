@@ -1,0 +1,96 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}
+{{ listing.title }}
+{% endblock %}
+
+{% block body %}
+
+    <main>
+
+        <div class="entry-container">
+
+            <div class="entry-item">
+
+                <h3>{{ listing.title }}</h3>
+
+                {% if message %}
+                    <div class="alert alert-info" role="alert">
+                        {{ message }}
+                    </div>
+                {% endif %}
+                
+                <img src="{{ listing.image }}" alt="No image">
+                
+                <h4>Details</h4>
+                <div class="entry-content">
+                    <ul>
+                        <li>Description: {{ listing.description }}</li>
+                        <li>Listed: {{ listing.owner }}</li>
+                        <li>Created: {{ listing.created_date }}</li>
+                        <li>Category: {{ listing.category }}</li>
+                        <li>Starting Price: $ {{ listing.starting_bid }}</li>
+                    </ul>
+                        <p class="current-price">$ {{ listing.current_price }}</p>
+
+                    {% if user.is_authenticated %}
+
+                        {% if listing.active %}
+                            <p>{{ bidders_count }} bids so far.Your bid is the current bid.</p>
+                            <form action="{% url 'bid' listing.id %}" method="post">
+                                {% csrf_token %}
+                                <div class="form-group row">
+                                    <input type="number" class="col-sm-6 form-control" name="price" min="{{ listing.current_price }}" step=".01">
+                                    <input class="btn-1" type="submit" value="Place Bid" >
+                                </div>
+                            </form>
+                            
+                            <form action="{% url 'watcher' listing.id %}" method="post">
+                                {% csrf_token %}
+                                {% if user in non_watchers %}
+                                    <div><i class="fa fa-eye-slash"></i>
+                                {% else %}    
+                                    <div><i class="fa fa-eye"></i>
+                                {% endif %}
+                                <input class="btn-1" type="submit" name="watchlist" value="watchlist">
+                                </div>
+                            </form>
+                        {% endif %}
+
+                        {% if listing.active and user == listing.owner %}
+                            <form action="{% url 'close' listing.id %}" method="post">
+                                {% csrf_token %}
+                                    <div><i class="fa fa-gavel"></i>
+                                    <input class="btn-1" type="submit" value="close auction">
+                                </div>
+                            </form>
+                        {% endif %}
+                </div>
+                
+                    <h4>Comments</h4>
+                    <div class="entry-content">
+                        {% for comment in comments %}
+                            <ul>
+                                <li>Commented by {{ comment.author }}</li>
+                                <li>{{ comment.content }}</li>
+                            </ul>
+                        {% endfor %}
+
+                        {% if listing.active %}
+                            <form action="{% url 'say' listing.id %}" method="post">
+                                {% csrf_token %}
+                                {{ form1 }}
+                                <input class="btn-1" type="submit" value="Create">
+                            </form>
+                        {% endif %}
+                        
+                    </div>
+                    
+                {% endif %}
+            </div>
+
+        </div>  
+
+    </main>
+
+{% endblock %}

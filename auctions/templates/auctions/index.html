@@ -1,0 +1,46 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}
+Auctions
+{% endblock %}
+
+{% block body %}
+
+    <main>
+
+        <div class="index-container">
+
+            <h3>Active Listings</h3>
+
+            <div class="dropdown">
+              <button class="dropbtn">Categories</button>
+              <div class="dropdown-content" style="left:0;">
+                {% for category in categories %}
+                    <a href="{% url 'filter' category.id %}">{{ category }}</a>
+                {% endfor %}
+              </div>
+            </div>
+
+            <div class="listing-container">
+                {% for list in lists %}
+                    <a href="{% url 'entry' list.id %}">
+                        <div class="item">
+                            <h5>{{ list.title }}</h5>
+                            <img src="{{ list.image }}" alt="No image">
+                            <ul>
+                                <li>{{ list.description }}</li>
+                                <li class="current-price">$ {{ list.current_price }}</li>
+                                <li class="date">created {{ list.created_date }}</li>    
+                            </ul>
+                        </div>
+                    </a>
+                {% empty %}
+                    <p>No active listing.</p>
+                {% endfor %}
+            </div>  
+
+        </div>
+            
+    </main>
+    
+{% endblock %}
