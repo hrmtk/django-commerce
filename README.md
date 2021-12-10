@@ -1,4 +1,4 @@
-# Commerce site with Django and SQL
+# Auctions
 Design an eBay-like e-commerce auction site that will allow users to post auction listings, place bids on listings, comment on those listings, and add listings to a “watchlist.”
 
 ## Examples of use
@@ -6,8 +6,8 @@ Design an eBay-like e-commerce auction site that will allow users to post auctio
   <img src="./commerce1.gif" alt="Commerce site" />
 </p>
 
-## Live demo
-* [Commerce Website](https://hrmtk-commerce.herokuapp.com/)
+* [live demo](https://hrmtk-commerce.herokuapp.com/)
+* [video demo](https://youtu.be/aFFVb3kH8to)
 
 ## General info
 * View list of all active listings
@@ -30,6 +30,3 @@ Project is: _finished_
 
 ## Inspiration
 * [CS50's Web Programming with Python and JavaScript](https://cs50.harvard.edu/web/2020/projects/2/commerce/)
-
-## Lisence
-MIT
